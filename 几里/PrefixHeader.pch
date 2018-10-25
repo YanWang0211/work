@@ -1,0 +1,148 @@
+//
+//  PrefixHeader.pch
+//  几里
+//
+//  Created by 泰山金融 on 2018/7/9.
+//  Copyright © 2018年 云农公社. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <Masonry.h>
+#import <UIImageView+WebCache.h>
+#import <JMessage/JMessage.h>
+#import "AppDelegate.h"
+#import <MJRefresh.h>
+//工具类
+#import "FYSingleton.h"
+#import "FYAlertView.h"
+#import "FYToolClass.h"
+#import "Config.h"
+#import "STTextHudTool.h"
+
+//AES 加密KEY
+#define AES_KEY @"1F43343566F703346ED8A16FE1CA3A31"
+
+// 弱引用
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+// 日志输出宏定义
+#ifdef DEBUG
+// 调试状态
+#define WYLog(FORMAT, ...) fprintf(stderr,"调试输出:%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+// 发布状态
+#define NSLog(...)
+#endif
+
+#define APP_DELEGATE        (AppDelegate *)[[UIApplication sharedApplication] delegate]
+
+//颜色
+#define RGBA(r,g,b,a)       [UIColor colorWithRed:(r)/255.f \
+green:(g)/255.f \
+blue:(b)/255.f \
+alpha:(a)]
+
+#define RGBOF(rgbValue)     [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 \
+alpha:1.0]
+
+#define kAppMainColor              RGBA(255, 205, 0,1)    // app主色调
+#define KAppBackViewColor          [UIColor whiteColor]
+#define kChatRoomBackViewColor     [UIColor colorWithRed:0.93f green:0.93f blue:0.93f alpha:1.00f]
+#define kAppGrayColor3             RGBA(153, 153, 153,1)          // #999999
+
+#define JiGuangAppKey @"8198190f2fa17e1248e990a5"
+
+#define kToString(object)   [NSString stringWithFormat:@"%@",object]
+
+
+#define kScreenW [UIScreen mainScreen].bounds.size.width
+#define kScreenH [UIScreen mainScreen].bounds.size.height
+
+#define isIPad()                (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define isIPhone()              (!isIPad())
+
+#define isIPhoneX()             (([[UIScreen mainScreen] bounds].size.height-812) ? NO : YES)
+
+#define isIPhone5()             ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define isIPhone4()             ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 960), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define isIOS11()               ([[UIDevice currentDevice].systemVersion doubleValue]>= 11.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 12.0)
+
+#define isIOS10()               ([[UIDevice currentDevice].systemVersion doubleValue]>= 10.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 11.0)
+
+#define isIOS9()                ([[UIDevice currentDevice].systemVersion doubleValue]>= 9.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 10.0)
+
+#define isIOS8()                ([[UIDevice currentDevice].systemVersion doubleValue]>= 8.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 9.0)
+
+#define isIOS7()                ([[UIDevice currentDevice].systemVersion doubleValue]>= 7.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 8.0)
+
+#define isIOS6()                ([[UIDevice currentDevice].systemVersion doubleValue]>= 6.0 && [[UIDevice currentDevice].systemVersion doubleValue] < 7.0)
+
+
+#define StatusBarHeight  (isIPhoneX() ? 88 : 64)
+//#define NavigationBarHeight  44
+#define TabBarHeight   (isIPhoneX() ? 83 : 49)
+
+
+#import "LiuqsEmoticonKeyBoard.h"
+#import "UIImage+extension.h"
+#import "UIView+Extension.h"
+#import "NSAttributedString+LiuqsExtension.h"
+#import "YYText.h"
+#import "YYImage.h"
+#import "LiuqsDecoder.h"
+//#import "FMDB.h"
+//#import "LiuqsMessageDataBase.h"
+//#import "LiuqsFileManager.h"
+
+
+//屏幕宽
+#define screenW [UIScreen mainScreen].bounds.size.width
+//屏幕高
+#define screenH [UIScreen mainScreen].bounds.size.height
+
+/*topbar*/
+//输入框的高度
+static CGFloat const TextViewH = 36.5;
+//键盘切换按钮的宽度
+static CGFloat const emotionBtnW = 36.5;
+//键盘切换按钮的高度
+static CGFloat const emotionBtnH = 36.5;
+//顶部工具条的高度
+#define topBarH   TextViewH - 10
+//输入框的宽度
+#define TextViewW screenW - (screenW * 55 / 320)
+
+/*keyBoard*/
+//键盘变化时间
+static CGFloat const keyBoardTipTime = 0.3;
+//每一页的按钮数，包括删除按钮
+static CGFloat const emojiCount = 21;
+//每一行的按钮数
+static CGFloat const KrowCount = 7;
+//每一页的行数
+static CGFloat const rows = 3;
+//键盘高度
+#define keyBoardH (4 * screenW * 0.0875 +(3 + 1) * ((screenW - 7 * screenW * 0.0875 ) / 8) + 20)
+//表情按钮宽高
+#define emotionW screenW * 0.0875
+//表情页的高度（第一键盘高度）
+#define pageH (screenW - KrowCount * emotionW) / (KrowCount + 1)
+
+
+/*颜色*/
+#define ColorRGB(r, g, b) [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1.0f]
+
+/*表名*/
+//聊天消息表
+static NSString *const tb_message = @"_message";
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* PrefixHeader_pch */

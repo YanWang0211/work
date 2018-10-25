@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="EditTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKq-rg-lxP">
+                        <rect key="frame" x="20" y="21" width="50" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="Skr-k3-KI2"/>
+                            <constraint firstAttribute="height" constant="18" id="W7B-wm-PdM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="MVp-NQ-Ryw">
+                        <rect key="frame" x="255.5" y="5" width="49.5" height="49.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="MVp-NQ-Ryw" secondAttribute="height" multiplier="1:1" id="eNR-AI-qCw"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="KKq-rg-lxP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8St-Fe-WOc"/>
+                    <constraint firstItem="MVp-NQ-Ryw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Nys-Zf-tMj"/>
+                    <constraint firstAttribute="bottom" secondItem="MVp-NQ-Ryw" secondAttribute="bottom" constant="5" id="XWO-Ol-Xc5"/>
+                    <constraint firstItem="KKq-rg-lxP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="gOk-4l-ehJ"/>
+                    <constraint firstAttribute="trailing" secondItem="MVp-NQ-Ryw" secondAttribute="trailing" constant="15" id="gxO-OR-gIU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imageV" destination="MVp-NQ-Ryw" id="PcA-vh-Usa"/>
+                <outlet property="name" destination="KKq-rg-lxP" id="32h-lh-zo3"/>
+            </connections>
+            <point key="canvasLocation" x="34" y="62"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="logo" width="500" height="500"/>
+    </resources>
+</document>
