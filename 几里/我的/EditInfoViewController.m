@@ -40,6 +40,30 @@
     
 }
 
+- (void)createNavigationBar{
+    
+    UIView * navigation = [[UIView alloc] initWithFrame:CGRectMake(0, 0, screenW, StatusBarHeight)];
+    navigation.backgroundColor = kAppMainColor;
+    [self.view addSubview:navigation];
+    
+    
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(20, StatusBarHeight - 37, 30, 30)];
+    [backBtn setImage:[UIImage imageNamed:@"ic_back"] forState:UIControlStateNormal];
+    [navigation addSubview:backBtn];
+    [backBtn addTarget:self action:@selector(popToSupperView) forControlEvents:UIControlEventTouchUpInside];
+    
+    UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 40)];
+    label.text = @"编辑";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor blackColor];
+    label.center = CGPointMake(screenW/2, StatusBarHeight - 20);
+    [navigation addSubview:label];
+    
+}
+- (void)popToSupperView{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 /*
 #pragma mark - Navigation
 
