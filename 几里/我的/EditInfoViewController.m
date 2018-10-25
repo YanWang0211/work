@@ -20,7 +20,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    NSArray * titleArr = @[@"头像",@"背景",@"昵称",@"年龄",@"性别",@"地址"];
+    NSArray * titleArr = @[@"更改头像",@"更改背景",@"更改昵称",@"更改年龄",@"更改性别",@"更改地址"];
     
     self.navigationItem.title = [titleArr objectAtIndex:_sign];
     
